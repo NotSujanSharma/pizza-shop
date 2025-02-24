@@ -1,17 +1,6 @@
-/**********************************************
- Workshop 3
- Course:CPP - Semester 4
- Last Name:Sharma
- First Name:Sujan
- ID:157775222
- Section:NDD
- This assignment represents my own work in accordance with Seneca Academic Policy.
- Signature
- Date:23rd Feb 2025
- **********************************************/
 package com.pizzashop.model;
 
-public class Order {
+    public class Order {
     private static final double TAX_RATE = 0.13; // 13% tax
     private Customer customer;
     private Pizza pizza;
