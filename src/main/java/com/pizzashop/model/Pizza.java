@@ -1,3 +1,14 @@
+/**********************************************
+ Workshop 3
+ Course:CPP - Semester 4
+ Last Name:Sharma
+ First Name:Sujan
+ ID:157775222
+ Section:NDD
+ This assignment represents my own work in accordance with Seneca Academic Policy.
+ Signature
+ Date:23rd Feb 2025
+ **********************************************/
 package com.pizzashop.model;
 
 public class Pizza {
@@ -35,7 +46,7 @@ public class Pizza {
                 basePrice = 0.0;
         }
 
-        // Apply size multiplier
+        // apply size multiplier
         switch (size) {
             case MEDIUM:
                 basePrice *= 1.2;
@@ -48,7 +59,7 @@ public class Pizza {
         return basePrice * quantity;
     }
 
-    // Getters and setters
+    // getters and setters
     public Type getType() {
         return type;
     }

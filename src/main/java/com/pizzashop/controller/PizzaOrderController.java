@@ -1,3 +1,14 @@
+/**********************************************
+ Workshop 3
+ Course:CPP - Semester 4
+ Last Name:Sharma
+ First Name:Sujan
+ ID:157775222
+ Section:NDD
+ This assignment represents my own work in accordance with Seneca Academic Policy.
+ Signature
+ Date:23rd Feb 2025
+ **********************************************/
 package com.pizzashop.controller;
 
 import com.pizzashop.model.*;
@@ -21,11 +32,11 @@ public class PizzaOrderController {
 
     @FXML
     public void initialize() {
-        // Initialize size combo box
+        // initializing size combo box
         sizeComboBox.getItems().addAll("Small", "Medium", "Large");
         sizeComboBox.setValue("Small");
 
-        // Create toggle group for pizza type
+        // creating toggle group for pizza type
         ToggleGroup pizzaTypeGroup = new ToggleGroup();
         cheeseRadio.setToggleGroup(pizzaTypeGroup);
         vegetarianRadio.setToggleGroup(pizzaTypeGroup);
@@ -36,18 +47,18 @@ public class PizzaOrderController {
     @FXML
     private void handlePlaceOrder() {
         try {
-            // Validate inputs
+            // validate inputs
             if (!validateInputs()) {
                 return;
             }
 
-            // Create customer
+            // vreate customer
             Customer customer = new Customer(
                     nameField.getText().trim(),
                     phoneField.getText().trim()
             );
 
-            // Determine pizza type
+            // determine pizza type
             Pizza.Type pizzaType;
             if (cheeseRadio.isSelected()) {
                 pizzaType = Pizza.Type.CHEESE;
@@ -57,7 +68,7 @@ public class PizzaOrderController {
                 pizzaType = Pizza.Type.MEAT_LOVER;
             }
 
-            // Determine pizza size
+            // determine pizza size
             Pizza.Size pizzaSize;
             switch (sizeComboBox.getValue().toUpperCase()) {
                 case "MEDIUM":
@@ -70,18 +81,18 @@ public class PizzaOrderController {
                     pizzaSize = Pizza.Size.SMALL;
             }
 
-            // Create pizza
+            // create pizza
             Pizza pizza = new Pizza(
                     pizzaType,
                     pizzaSize,
                     Integer.parseInt(quantityField.getText().trim())
             );
 
-            // Create and store order
+            // create and store order
             Order order = new Order(customer, pizza);
             orders.add(order);
 
-            // Display order summary
+            // display order summary
             orderSummaryArea.setText(order.generateOrderSummary());
 
         } catch (NumberFormatException e) {

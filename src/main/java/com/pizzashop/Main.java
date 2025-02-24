@@ -1,3 +1,14 @@
+/**********************************************
+ Workshop 3
+ Course:CPP - Semester 4
+ Last Name:Sharma
+ First Name:Sujan
+ ID:157775222
+ Section:NDD
+ This assignment represents my own work in accordance with Seneca Academic Policy.
+ Signature
+ Date:23rd Feb 2025
+ **********************************************/
 package com.pizzashop;
 
 import javafx.application.Application;
@@ -11,8 +22,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/pizzashop/view/PizzaShop.fxml"));
         Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
         primaryStage.setTitle("Pizza Shop");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setMinWidth(800);
+        primaryStage.setMinHeight(600);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

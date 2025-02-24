@@ -1,3 +1,14 @@
+/**********************************************
+ Workshop 3
+ Course:CPP - Semester 4
+ Last Name:Sharma
+ First Name:Sujan
+ ID:157775222
+ Section:NDD
+ This assignment represents my own work in accordance with Seneca Academic Policy.
+ Signature
+ Date:23rd Feb 2025
+ **********************************************/
 package com.pizzashop.model;
 
 public class Order {
@@ -43,7 +54,7 @@ public class Order {
         return summary.toString();
     }
 
-    // Getters
+    // getters
     public Customer getCustomer() {
         return customer;
     }

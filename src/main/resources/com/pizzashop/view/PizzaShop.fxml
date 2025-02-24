@@ -5,50 +5,77 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:controller="com.pizzashop.controller.PizzaOrderController"
-          xmlns:fx="http://javafx.com/fxml"
-          alignment="center" hgap="10" vgap="10"
-          styleClass="main-grid">
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.pizzashop.controller.PizzaOrderController"
+      styleClass="root"
+      spacing="20"
+      stylesheets="@styles.css"
+      alignment="CENTER">
 
     <padding>
-        <Insets top="25" right="25" bottom="25" left="25"/>
+        <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <!-- Left side - Customer Info -->
-    <VBox spacing="10" styleClass="customer-info"
-          GridPane.columnIndex="0" GridPane.rowIndex="0">
-
-        <Label text="Pizza Shop" styleClass="title"/>
-
-        <Label text="Name:"/>
-        <TextField fx:id="nameField"/>
-
-        <Label text="Phone:"/>
-        <TextField fx:id="phoneField"/>
-    </VBox>
-
-    <!-- Right side - Order Details -->
-    <VBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0">
-        <Label text="Type"/>
-        <RadioButton fx:id="cheeseRadio" text="Cheese"/>
-        <RadioButton fx:id="vegetarianRadio" text="Vegetarian"/>
-        <RadioButton fx:id="meatLoverRadio" text="Meat Lover"/>
-
-        <Label text="Size"/>
-        <ComboBox fx:id="sizeComboBox"/>
-
-        <Label text="Quantity"/>
-        <TextField fx:id="quantityField"/>
-
-        <HBox spacing="10">
-            <Button text="Place Order" onAction="#handlePlaceOrder"/>
-            <Button text="Clear" onAction="#handleClear"/>
+    <VBox styleClass="customer-info" prefWidth="300">
+        <HBox alignment="CENTER" spacing="10">
+            <Text styleClass="title" text="🍕 Pizza Shop"/>
         </HBox>
 
-        <Label text="Order Summary"/>
-        <TextArea fx:id="orderSummaryArea"
-                  prefRowCount="10"
-                  prefColumnCount="40"
-                  wrapText="true"/>
+        <VBox spacing="15" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets top="30"/>
+            </padding>
+
+            <Label text="Customer Name"/>
+            <TextField fx:id="nameField" promptText="Enter customer name"/>
+
+            <Label text="Phone Number"/>
+            <TextField fx:id="phoneField" promptText="Enter phone number"/>
+        </VBox>
     </VBox>
-</GridPane>
+
+    <VBox styleClass="main-container" prefWidth="400">
+        <Label text="Pizza Details" styleClass="section-title"/>
+
+        <VBox spacing="10">
+            <Label text="Select Type" styleClass="sub-label"/>
+            <VBox spacing="5">
+                <RadioButton fx:id="cheeseRadio" text="Cheese Pizza" selected="true"/>
+                <RadioButton fx:id="vegetarianRadio" text="Vegetarian Pizza"/>
+                <RadioButton fx:id="meatLoverRadio" text="Meat Lover's Pizza"/>
+            </VBox>
+        </VBox>
+
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15"/>
+            </padding>
+            <Label text="Select Size" styleClass="sub-label"/>
+            <ComboBox fx:id="sizeComboBox" prefWidth="150"/>
+        </VBox>
+
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15"/>
+            </padding>
+            <Label text="Quantity" styleClass="sub-label"/>
+            <TextField fx:id="quantityField" prefWidth="150" promptText="Enter quantity"/>
+        </VBox>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="20"/>
+            </padding>
+            <Button text="Place Order" onAction="#handlePlaceOrder" styleClass="place-order-btn"/>
+            <Button text="Clear" onAction="#handleClear" styleClass="clear-btn"/>
+        </HBox>
+
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20"/>
+            </padding>
+            <Label text="Order Summary" styleClass="section-title"/>
+            <TextArea fx:id="orderSummaryArea" prefRowCount="8" wrapText="true"/>
+        </VBox>
+    </VBox>
+</HBox>
