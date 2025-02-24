@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<GridPane fx:controller="com.pizzashop.controller.PizzaOrderController"
+          xmlns:fx="http://javafx.com/fxml"
+          alignment="center" hgap="10" vgap="10"
+          styleClass="main-grid">
+
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
+
+    <!-- Left side - Customer Info -->
+    <VBox spacing="10" styleClass="customer-info"
+          GridPane.columnIndex="0" GridPane.rowIndex="0">
+
+        <Label text="Pizza Shop" styleClass="title"/>
+
+        <Label text="Name:"/>
+        <TextField fx:id="nameField"/>
+
+        <Label text="Phone:"/>
+        <TextField fx:id="phoneField"/>
+    </VBox>
+
+    <!-- Right side - Order Details -->
+    <VBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <Label text="Type"/>
+        <RadioButton fx:id="cheeseRadio" text="Cheese"/>
+        <RadioButton fx:id="vegetarianRadio" text="Vegetarian"/>
+        <RadioButton fx:id="meatLoverRadio" text="Meat Lover"/>
+
+        <Label text="Size"/>
+        <ComboBox fx:id="sizeComboBox"/>
+
+        <Label text="Quantity"/>
+        <TextField fx:id="quantityField"/>
+
+        <HBox spacing="10">
+            <Button text="Place Order" onAction="#handlePlaceOrder"/>
+            <Button text="Clear" onAction="#handleClear"/>
+        </HBox>
+
+        <Label text="Order Summary"/>
+        <TextArea fx:id="orderSummaryArea"
+                  prefRowCount="10"
+                  prefColumnCount="40"
+                  wrapText="true"/>
+    </VBox>
+</GridPane>
